@@ -1,5 +1,6 @@
 package com.hk.kotlindsl
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -29,11 +30,20 @@ class MainActivity : AppCompatActivity() {
             message = "Hey all"
             duration = ToastN.Duration.SHORT
         }
+
+
+        Intent(this, MainActivity::class.java)
+        
+        DSLUtils.intent {
+            from = this@MainActivity
+            to = MainActivity::class.java
+        }
     }
 }
 
 fun person(lambda : Person.()-> Unit) : Person {
     val person = Person()
     person.lambda()
+    person.apply {  }
     return person
 }

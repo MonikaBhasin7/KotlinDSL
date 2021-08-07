@@ -1,6 +1,7 @@
 package com.hk.kotlindsl
 
 import android.content.Context
+import android.content.Intent
 import android.widget.Toast
 
 object DSLUtils {
@@ -13,6 +14,18 @@ object DSLUtils {
         if(toastN.duration == ToastN.Duration.SHORT)
             Toast.makeText(toastN.context, toastN.message, Toast.LENGTH_SHORT).show()
     }
+
+    fun intent(lambda: IntentN.() -> Unit): Intent {
+        val intentN = IntentN()
+        intentN.lambda()
+        return Intent(intentN.from, intentN.to)
+    }
+
+}
+
+class IntentN {
+    lateinit var from: Context
+    lateinit var to : Class<*>
 }
 
 class ToastN {
