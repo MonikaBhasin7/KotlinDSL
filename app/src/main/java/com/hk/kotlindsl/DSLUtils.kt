@@ -6,13 +6,28 @@ import android.widget.Toast
 
 object DSLUtils {
 
+}
 
+class Put {
+    lateinit var key: String
+    lateinit var value: String
+}
 
+class Extras {
+    var listOfPuts: MutableList<Put> = mutableListOf()
+    var put: Put
+        get() {
+            return Put()
+        }
+        set(value) {
+            listOfPuts.add(value)
+        }
 }
 
 class IntentN {
     lateinit var from: Context
     lateinit var to : Class<*>
+    lateinit var extras: Extras
 }
 
 class ToastN {

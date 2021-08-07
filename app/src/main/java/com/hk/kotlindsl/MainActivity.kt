@@ -1,10 +1,8 @@
 package com.hk.kotlindsl
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.hk.kotlindsl.DSLUtils
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,10 +32,22 @@ class MainActivity : AppCompatActivity() {
 
         //Intent(this, MainActivity::class.java)
 
-        startActivity {
+        Thread.sleep(2000)
+
+        startActivity() {
             intent {
                 from = this@MainActivity
-                to = MainActivity::class.java
+                to = NewActivity::class.java
+                extras = extras {
+                    put = put {
+                        key = "android"
+                        value = "kotlin"
+                    }
+                    put = put {
+                        key = "ios"
+                        value = "swift"
+                    }
+                }
             }
         }
     }
