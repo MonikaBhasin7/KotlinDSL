@@ -32,9 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         //Intent(this, MainActivity::class.java)
 
-        Thread.sleep(2000)
-
-        startActivity() {
+        startActivity {
             intent {
                 from = this@MainActivity
                 to = NewActivity::class.java
