@@ -6,20 +6,7 @@ import android.widget.Toast
 
 object DSLUtils {
 
-    fun Toast(lambda: ToastN.() -> (Unit)) {
-        val toastN = ToastN()
-        toastN.lambda()
-        if(toastN.duration == ToastN.Duration.LONG)
-            Toast.makeText(toastN.context, toastN.message, Toast.LENGTH_LONG).show()
-        if(toastN.duration == ToastN.Duration.SHORT)
-            Toast.makeText(toastN.context, toastN.message, Toast.LENGTH_SHORT).show()
-    }
 
-    fun intent(lambda: IntentN.() -> Unit): Intent {
-        val intentN = IntentN()
-        intentN.lambda()
-        return Intent(intentN.from, intentN.to)
-    }
 
 }
 

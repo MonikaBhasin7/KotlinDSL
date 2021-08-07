@@ -25,18 +25,20 @@ class MainActivity : AppCompatActivity() {
         *   duration = Toast.LENGTH_SHORT
         * }
         * */
-        DSLUtils.Toast {
+        Toast {
             context = this@MainActivity
             message = "Hey all"
             duration = ToastN.Duration.SHORT
         }
 
 
-        Intent(this, MainActivity::class.java)
-        
-        DSLUtils.intent {
-            from = this@MainActivity
-            to = MainActivity::class.java
+        //Intent(this, MainActivity::class.java)
+
+        startActivity {
+            intent {
+                from = this@MainActivity
+                to = MainActivity::class.java
+            }
         }
     }
 }
