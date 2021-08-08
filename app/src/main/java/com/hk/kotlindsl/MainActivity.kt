@@ -36,12 +36,12 @@ class MainActivity : AppCompatActivity() {
             intent {
                 from = this@MainActivity
                 to = NewActivity::class.java
-                extras = extras {
-                    put = put {
+                extras {
+                    put {
                         key = "android"
                         value = "kotlin"
                     }
-                    put = put {
+                    put {
                         key = "ios"
                         value = "swift"
                     }

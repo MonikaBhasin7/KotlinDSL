@@ -15,19 +15,25 @@ class Put {
 
 class Extras {
     var listOfPuts: MutableList<Put> = mutableListOf()
-    var put: Put
-        get() {
-            return Put()
-        }
-        set(value) {
-            listOfPuts.add(value)
-        }
+
+    fun put(lambda: Put.() -> Unit) {
+        val put = Put()
+        put.lambda()
+        listOfPuts.add(put)
+    }
 }
 
 class IntentN {
     lateinit var from: Context
     lateinit var to : Class<*>
     lateinit var extras: Extras
+
+    fun extras(lambda: Extras.() -> Unit) {
+        val extras = Extras()
+        extras.lambda()
+        this.extras = extras
+        println("extras - ${extras.listOfPuts}")
+    }
 }
 
 class ToastN {
